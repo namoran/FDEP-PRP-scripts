@@ -300,18 +300,18 @@ with fileinput.input(sys.argv[1:]) as fileset:
                 if row['Matrix'] == 'W':        # Everything within this if is for water samples
                         if   GCTLs.get(row['Parameter'].lower()) != None:        
                                 if   row['Units'].lower() == 'ug/l' and float(row['Result']) > float(GCTLs.get(row['Parameter'].lower())):
-                                        if row not in HitSummary:
+                                        if row not in HitSummary and row['Qualifier'] != 'U':
                                                 HitSummary.append(row)
                                         GCTLSummary.append(row)
                                         
                                 elif row['Units'].lower() == 'mg/l' and float(row['Result'])*1000 > float(GCTLs.get(row['Parameter'].lower())):
-                                        if row not in HitSummary:
+                                        if row not in HitSummary and row['Qualifier'] != 'U':
                                                 HitSummary.append(row)
                                         GCTLSummary.append(row)
                         if   NADCs.get(row['Parameter'].lower()) != None:
                                 if    row['Units'].lower() == 'ug/l' and float(row['Result']) > float(NADCs.get(row['Parameter'].lower())):
                                         upper_Exceedance = 'NADC_Exceedance'
-                                        if row not in HitSummary:
+                                        if row not in HitSummary and row['Qualifier'] != 'U':
                                                 HitSummary.append(row)
                                         NADCSummary.append(row)
                                         if row in GCTLSummary:
@@ -319,7 +319,7 @@ with fileinput.input(sys.argv[1:]) as fileset:
                                                 
                                 elif  row['Units'].lower() == 'mg/l' and float(row['Result'])*1000 > float(NADCs.get(row['Parameter'].lower())):
                                        
-                                        if row not in HitSummary:
+                                        if row not in HitSummary and row['Qualifier'] != 'U':
                                                 HitSummary.append(row)
                                         NADCSummary.append(row)
                                         if row in GCTLSummary:
@@ -328,24 +328,24 @@ with fileinput.input(sys.argv[1:]) as fileset:
                 elif row['Matrix'] == 'S':      # Everyting within this if is for soil samples
                         if   Leachabilities.get(row['Parameter'].lower()) != None:        
                                 if   row['Units'].lower() == 'ug/kg' and float(row['Result'])/1000 > float(Leachabilities.get(row['Parameter'].lower())):
-                                        if row not in HitSummary:
+                                        if row not in HitSummary and row['Qualifier'] != 'U':
                                                 HitSummary.append(row)
                                         LeachabilitySummary.append(row)
                                         
                                 elif row['Units'].lower() == 'mg/kg' and float(row['Result']) > float(Leachabilities.get(row['Parameter'].lower())):
-                                        if row not in HitSummary:
+                                        if row not in HitSummary and row['Qualifier'] != 'U':
                                                 HitSummary.append(row)
                                         LeachabilitySummary.append(row)
                         if   SCTLs.get(row['Parameter'].lower()) != None:
                                 if    row['Units'].lower() == 'ug/kg' and float(row['Result'])/1000 > float(SCTLs.get(row['Parameter'].lower())):
-                                        if row not in HitSummary:
+                                        if row not in HitSummary and row['Qualifier'] != 'U':
                                                 HitSummary.append(row)
                                         SCTLSummary.append(row)
                                         if row in LeachabilitySummary:
                                                 LeachabilitySummary.pop()
                                                 
                                 elif  row['Units'].lower() == 'mg/kg' and float(row['Result']) > float(SCTLs.get(row['Parameter'].lower())):
-                                        if row not in HitSummary:
+                                        if row not in HitSummary and row['Qualifier'] != 'U':
                                                 HitSummary.append(row)
                                         SCTLSummary.append(row)
                                         if row in LeachabilitySummary:
