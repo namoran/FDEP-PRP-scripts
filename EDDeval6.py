@@ -175,6 +175,7 @@ def display_table(list):
         
         sortedlist = sorted(list,key=itemgetter('Parameter'))
         sortedlist = sorted(sortedlist,key=itemgetter('TestSite_Name'))
+        sortedlist = sorted(sortedlist,key=itemgetter('Facility_ID'))
         for count, row in enumerate(sortedlist):
                 GCTL = ''
                 NADC = ''
