@@ -170,6 +170,16 @@ SCTLSummary = []
 DetectionSummary = []
 EDD = []
 
+def check_detection(qualifier):
+        if qualifer = 'U':
+                return True
+        else:
+                return False
+
+def check_GCTL_exceedance(parameter, result, units, matrix, qualifier):
+        pass
+        
+        
 
 def display_table(list):
         
