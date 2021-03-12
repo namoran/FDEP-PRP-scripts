@@ -8,6 +8,8 @@ def check_detection(qualifier):
 def convert_units(result, units, new_units):
     '''convert units of the results fed into the fuction'''
     #the units tyoes are limited to ug/l ug/kg mg/kg mg/l ppm ppb
+    if units == new_units:
+        return result, units
     return converted_result, new_units
 
 def check_GCTL_exceedance(parameter, result, units, matrix, qualifier):
