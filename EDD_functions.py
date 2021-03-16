@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 def check_detection(qualifier):
     '''checks to see if the analyte was detected by seeing if the qualifier is U'''
     if qualifier == 'U':
@@ -8,13 +10,12 @@ def check_detection(qualifier):
 def convert_units(result, units, new_units):
     '''convert units of the results fed into the function'''
     #the units tyoes are limited to ug/l ug/kg mg/kg mg/l ppm ppb
-    convert_sequence = {"u":	 10**(-6),
-			"ppb":	 10**(-6),
-			"m": 	 10**(-3),
-			"ppm":	 10**(-3),
-			"":     10**0 
+    convert_sequence = {"u":	 Decimal('10e-6'),
+			"ppb":	 Decimal('10e-6'),
+			"m": 	 Decimal('10e-3'),
+			"ppm":	 Decimal('10e-3'),
 			}
-    
+    result = Decimal(str(result))
     U = convert_sequence
     if units in {"ppb", "ppm"} and new_units in {"ppb", "ppm"}:
         return result*U[units]/U[new_units], new_units
