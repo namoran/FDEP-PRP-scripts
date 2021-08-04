@@ -176,15 +176,7 @@ def display_table(list):
         sortedlist = sorted(list,key=itemgetter('ANALYTPARAM'))
         sortedlist = sorted(sortedlist,key=itemgetter('SAMPLOC'))
         for count, row in enumerate(sortedlist):
-                GCTL = ''
-                NADC = ''
-                GCTL_Exceedance = ''
-                NADC_Exceedance = ''
-                Leachability_exceedance = ''
-                SCTL_Exceedance = ''
-                Detection = ''
-                SCTL = ''
-                Leachability = ''
+                GCTL=NADC=GCTL_Exceedance=NADC_Exceedance=Leachability_exceedance=SCTL_Exceedance=Detection=SCTL=Leachability=''
                                 
                 if row['ANALYTPARAM'] in ['SAMPLE DEPTH','Dissolved Oxygen', 'Specific Conductance', 'Temperature, Water', 'Turbidity', 'pH']:
                         continue

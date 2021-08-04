@@ -1,0 +1,5 @@
+The EDD list is a set of all sample entries in the EDD
+the Hit Summary is a subset of that EDD list, there will never be a Hit that is not contained in the EDD list therefor the EDD list contains the Hitlist.
+so the EDD list can be scanned/create first, then the Hit list can be generated from that. 
+
+I cannot work on the displaying data part of this problem until I have mastered the data sorting and confirmed that is being done correctly.

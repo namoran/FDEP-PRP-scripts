@@ -37,7 +37,6 @@ GCTLs = {'benzene':1,
          'cadmium':5,
          'chromium (total)':100,
          'lead':15}
-
 NADCs = {'benzene':100,
          'acenaphthene':200,
          'acenaphthylene':2100,
@@ -75,7 +74,6 @@ NADCs = {'benzene':100,
          'cadmium':50,
          'chromium (total)':1000,
          'lead':150}
-
 SCTLs = {'acenapthene':2400000,
          'acenaphthylene':1800000,
          'anthracene':21000000,
@@ -106,7 +104,6 @@ SCTLs = {'acenapthene':2400000,
          'cadmium':82000,
          'chromium':210,
          'lead':400000}
-
 Leachabilities = {'acenapthene':2.1,
          'acenaphthylene':27,
          'anthracene':2500,
@@ -169,17 +166,7 @@ LeachabilitySummary = []
 SCTLSummary = []
 DetectionSummary = []
 EDD = []
-
-def check_detection(qualifier):
-        if qualifer = 'U':
-                return True
-        else:
-                return False
-
-def check_GCTL_exceedance(parameter, result, units, matrix, qualifier):
-        pass
-        
-        
+      
 
 def display_table(list):
         
@@ -295,9 +282,9 @@ with fileinput.input(sys.argv[1:]) as fileset:
 			fieldnames = row
 			print(fieldnames)
 			break
-	reader = csv.DictReader(fileset,fieldnames=fieldnames)
-	for count, row in enumerate(reader):
-                if fileinput.filelineno() == 1 or fileinput.filelineno() == 2:
+	reader = csv.DictReader(fileset,fieldnames=fieldnames) # this does not start "fileset" on the 0 line but on the 2, thus the code if fileinput.filelineno() == 1 or fileinput.filelineno() == 2: appears useless
+	for count, row in enumerate(reader):                                      
+                if fileinput.filelineno() == 1 or fileinput.filelineno() == 2: # this section fo the code doesnt appear to ever be triggered beciase the fileinput.fileno does not return to zero becuase "fileset" is not "seeked" to the beggining of the file object
                         continue
                 EDD.append(row)
                 
