@@ -13,3 +13,7 @@ It can be called either by itself with no argument, in which case the script wil
 captable.py
 ------------
 This script works similary to the one above, it takes the FDEP ID number as input and returns the cap to date information in a markdown table. This script should be run from the command line and can be run with an argument or it can be run without an argument in which case the script will prompt the user for the FDEP fac ID number. 
+
+contam.py
+---------
+This script works similarly to the ones above, it takes an FDEP ID as an input and returns the contaminated facility data (if the facility is on the contaminated facility list) to the console in a markdown table. 
