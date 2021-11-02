@@ -1,4 +1,7 @@
 This repo is a grouping of several scripts that I use for work on the petroleum restoration program. There is a draft EDD evaluation script that is mostly completed, but it needs tests to be created and the code needs to be refactored to be more functional.
+These scripts are used to fetch data at the moment it is needed without having to visit several disparate websites and files. The scripts query the data from the reports available at https://prodlamp.dep.state.fl.us/www_stcm/. 
+
+Contact me at [nicholasmoran.net](nicholasmoran.net) if you you want help setting this up or would like scripts customized to specific needs, or just to say hi.
 
 Getcid.py
 ---------
