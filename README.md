@@ -5,4 +5,7 @@ Getcid.py
 This script should be run from the commandline. It takes a FDEP number as a its input and returns a markdown table to the console. 
 It can be called either by itself with no argument, in which case the script will request input from the user, or you can provide the script with the fdep facility number of interest (a 7 digit number often starting with 850.... but not always)
 
-
+open_discharges.py
+------------------
+This script should be run from the commandline. It takes a FDEP number as a its input and returns a markdown table to the console. 
+It can be called either by itself with no argument, in which case the script will request input from the user, or you can provide the script with the fdep facility number of interest (a 7 digit number often starting with 850.... but not always)
