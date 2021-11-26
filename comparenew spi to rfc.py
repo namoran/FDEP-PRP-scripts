@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import openpyxl
+import streamlit as st
 
 tasks = ['TASK 1', 
          'TASK 2','TASK 3', 'TASK 4', 'TASK 5', 'TASK 6', 
@@ -115,66 +116,88 @@ def generate_report(ws_rfc, ws_old_spi, ws_new_spi):
     #print(rfc_dump)
     #print(spi_delta) uncomment for debugging
     if rfc_dump == spi_delta:
-        report.append('rfc items successfully transfered to new SPI')
+        success = True
+        st.balloons()
+        report.append('# Success!!')
+        report.append('## RFC items were transferred to new SPI')
         print('rfc items successfully transfered to new SPI')
     else:
+        success = False
         print('this rfc package is incorrect\nthe following items need attention:')
-        report.append('this rfc package is incorrect\nthe following items need attention:')
+        report.append('# This rfc package is incorrect !')
+        report.append('## The following items need attention:')
         if len(rfc_dump) != len(spi_delta): 
-            report.append('number of items in rfc don\'t match new spi')
-            print('number of items in rfc don\'t match new spi')
+            report.append('- number of items in rfc don\'t match new spi')
+            print('- number of items in rfc don\'t match new spi')
             if len(rfc_dump) > len(spi_delta):
-                report.append('rfc contains {} items '
+                report.append('- rfc contains {} items '
                       'that arent in the new spi'.format(len(rfc_dump)-len(spi_delta)))
-                print('rfc contains {} items '
+                print('- rfc contains {} items '
                       'that arent in the new spi'.format(len(rfc_dump)-len(spi_delta)))
             if len(rfc_dump) < len(spi_delta):
-                report.append('spi contains {} items '
+                report.append('- spi contains {} items '
                       'that arent in the rfc'.format(len(spi_delta)-len(rfc_dump)))
-                print('spi contains {} items '
+                print('- spi contains {} items '
                       'that arent in the rfc'.format(len(spi_delta)-len(rfc_dump)))
 
         for tuple_rfc_dump in rfc_dump:
             if tuple_rfc_dump not in spi_delta:
                 taskrfc, pirfc, unitsrfc = tuple_rfc_dump
-                report.append('rfc line item for {} pay item {},'
+                report.append('- rfc line item for {} pay item {},'
                       ' {} units does not appear in the '
                       'new spi'.format(taskrfc, pirfc, unitsrfc))
-                print('rfc line item for {} pay item {},'
+                print('- rfc line item for {} pay item {},'
                       ' {} units does not appear in the '
                       'new spi'.format(taskrfc, pirfc, unitsrfc))
 
         for tuple_spi_delta in spi_delta:
             if tuple_spi_delta not in rfc_dump:
                 taskspi, pispi, unitsspi = tuple_spi_delta
-                report.append('spi line item for {} pay item {}, {} '
+                report.append('- spi line item for {} pay item {}, {} '
                       'units does not appear in the rfc'.format(taskspi, pispi, unitsspi))
-                print('spi line item for {} pay item {}, {} '
+                print('- spi line item for {} pay item {}, {} '
                       'units does not appear in the rfc'.format(taskspi, pispi, unitsspi))
 
     
-    return report
+    return report, success
+st.write('# PRP Change Order Package Checker')
+st.write('''## This tool makes sure all items \
+in the Change Order were successfully transferred to the new SPI''')
 
-rfc="Y:/Environmental Monitoring Restoration/PC/Pollution Remediation/Nicholas Share/389-8504922 Playa Valero/CO7/CO#7 Playa Valero 138504922-nm altered.xlsm"
+st.write('### Step 1. Upload the Excel version of the RFC')
+rfc = st.file_uploader("upload your rfc here",type='xlsm')
+if rfc != None:
+    wb_rfc = openpyxl.load_workbook(rfc, read_only=True, data_only=True)
+    ws_rfc = wb_rfc['RFC']
+st.write('### Step 2. Upload the most recent approved SPI')
 
-old_spi="Y:/Environmental Monitoring Restoration/PC/Pollution Remediation/Nicholas Share/389-8504922 Playa Valero/CO7/AttachmentB(Revision2)-SPI-138504922-SA.xlsm"
+old_spi = st.file_uploader("Old SPI (the one you got from MFMP)",type='xlsm')
+if old_spi != None:
+    wb_old_spi = openpyxl.load_workbook(old_spi, read_only=True, data_only=True)
+    ws_old_spi = wb_old_spi['SOW Units']
+st.write('### Step 3. Upload the New SPI')
+new_spi = st.file_uploader("NEW SPI (The one you generated from the RFC)",type='xlsm')
+if new_spi != None:
+    wb_new_spi = openpyxl.load_workbook(new_spi, read_only=True, data_only=True)
+    ws_new_spi = wb_new_spi['SOW Units']
 
-new_spi="Y:/Environmental Monitoring Restoration/PC/Pollution Remediation/Nicholas Share/389-8504922 Playa Valero/CO7/AttachmentB(Revision3)-SPI-138504922-SA.xlsm"
 
-wb_rfc = openpyxl.load_workbook(rfc, read_only=True, data_only=True)
-wb_old_spi = openpyxl.load_workbook(old_spi, read_only=True, data_only=True)
-wb_new_spi = openpyxl.load_workbook(new_spi, read_only=True, data_only=True)
+try:
+    report, success = generate_report(ws_rfc, ws_old_spi, ws_new_spi)
+    wb_rfc.close()    
+    wb_old_spi.close()
+    wb_new_spi.close()
+    report = '  \n'.join(report)
+    if success == True:
+        st.image('https://www.nicepng.com/png/full/362-3624869_success-image-png.png',width=240,)
+    else:
+        st.image('https://purepng.com/public/uploads/large/purepng.com-sign-stoptraffic-signsign-stopnotify-driversstop-signs-1701527614263a3116.png',width=240)
 
-ws_rfc = wb_rfc['RFC']
-ws_old_spi = wb_old_spi['SOW Units']
-ws_new_spi = wb_new_spi['SOW Units']
+    st.write(report)
+    
+except:
+    st.write('Upload your files to process')
 
-report = generate_report(ws_rfc, ws_old_spi, ws_new_spi)
-wb_rfc.close()    
-wb_old_spi.close()
-wb_new_spi.close()
-
-print(*report, sep='\n')
 
 
 
