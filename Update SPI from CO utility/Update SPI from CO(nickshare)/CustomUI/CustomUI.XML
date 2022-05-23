@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui">
+  <ribbon>
+    <tabs>
+      <tab id="PRPtab" label="PRP" >
+        <group id="Export-transfergroup" label="Export-Transfer" >
+          <button id="UpdateSPI" visible="true" size="large" 
+                  label="Update SPI from CO" keytip="W" 
+                  screentip="Use this to tranfer pay items from the Change Order to the SPI" 
+                  onAction="Main" imageMso="Export"/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>

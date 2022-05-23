@@ -1,0 +1,84 @@
+var inch = 72;
+//UT Label
+var aRectutLabel=[];
+aRectutLabel[0]= 8.70*inch; //left side of text input
+aRectutLabel[2]= aRectutLabel[0]+0.25*inch; // calculate width
+aRectutLabel[1]= 8.25*inch; // top of the field
+aRectutLabel[3]= aRectutLabel[1]-0.18*inch; //field height
+var utnoLabel = this.addField("UTLabel", "text", 0, aRectutLabel);
+//utnoLabel.delay = true;
+utnoLabel.value = "UT#:";
+utnoLabel.readonly = true;
+utnoLabel.textSize = 0; //autosize
+utnoLabel.alignment = "left";
+utnoLabel.textFont = font.HelvB;
+//utnoLabel.delay = false;
+//UT no
+var aRectut=[];
+aRectut[0] = aRectutLabel[2] + 0.5; //left side of text input
+aRectut[2] = aRectutLabel[2]+0.45*inch; // calculate width
+aRectut[1] = aRectutLabel[1];
+aRectut[3] = aRectutLabel[1] -0.18*inch;
+var utno = this.addField("UT#", "text", 0, aRectut);
+//utno.delay = true;
+utno.textSize = 0; //autosize
+utno.alignment = "left";
+utno.textFont = font.HelvB;
+//utno.delay = false;
+
+
+
+//PrgLabel
+var aRectprgLabel=[];
+aRectprgLabel[0]= aRectutLabel[0]; //left side of text input
+aRectprgLabel[2]= aRectutLabel[0]+0.25*inch; // calculate width
+aRectprgLabel[1]= aRectutLabel[3];
+aRectprgLabel[3]= aRectutLabel[3] -0.18*inch;
+var prgLabel = this.addField("PrgLabel", "text", 0, aRectprgLabel);
+//prgLabel.delay = true;
+prgLabel.value = "Prg:";
+prgLabel.readonly = true;
+prgLabel.textSize = 0; //autosize
+prgLabel.alignment = "left";
+prgLabel.textFont = font.HelvB;
+//prgLabel.delay = false;
+//Prg
+var aRectprg=[];
+aRectprg[0] = aRectprgLabel[2] + 0.5; //left side of text input
+aRectprg[2] = aRectprgLabel[2]+0.45*inch;// calculate width
+aRectprg[1] = aRectprgLabel[1];
+aRectprg[3] = aRectprgLabel[1]-0.18*inch;
+var prg = this.addField("prg", "text", 0, aRectprg);
+prg.textSize = 0; //autosize
+prg.defaultValue = "Prg: ";
+prg.alignment = "left";
+prg.textFont = font.HelvB;
+
+
+
+
+//Scr Label
+var aRectscrLabel=[];
+aRectscrLabel[0]= aRectprgLabel[0]; //align label with the label above
+aRectscrLabel[2]= aRectprgLabel[0]+0.25*inch; // 
+aRectscrLabel[1]= aRectprgLabel[3];
+aRectscrLabel[3]= aRectprgLabel[3]-0.18*inch;
+var scrLabel = this.addField("scrLabel", "text", 0, aRectscrLabel);
+//scrLabel.delay = true;
+scrLabel.value = "Scr:";
+scrLabel.readonly = true;
+scrLabel.textSize = 0; //autosize
+scrLabel.alignment = "left";
+scrLabel.textFont = font.HelvB;
+//scrLabel.delay = false;
+
+var aRectscr=[];
+aRectscr[0] = aRectscrLabel[2] + 0.5; //left side of text input
+aRectscr[2] = aRectscrLabel[2]+0.45*inch;// calculate width
+aRectscr[1] = aRectscrLabel[1];
+aRectscr[3] = aRectscrLabel[1]-0.18*inch;
+var scr = this.addField("scr", "text", 0, aRectscr);
+scr.textSize = 0; //autosize
+scr.defaultValue = "Scr: ";
+scr.alignment = "left";
+scr.textFont = font.HelvB;

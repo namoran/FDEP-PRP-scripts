@@ -1,0 +1,7 @@
+mkdir (1..3|foreach{"stage$_"})
+
+(Get-childitem -Path "\\ecsfs1\DERMPublic\Environmental Monitoring Restoration\PC\Pollution Remediation\Nicholas Share" -Recurse -File)| Sort-object -Property LastAccessTime -Descending |where -Property LastAccessTime -GT $((get-date).date)| Format-table -Property Directory, Name, LastAccessTime
+
+(Get-childitem -Path "\\ecsfs1\DERMPublic\Environmental Monitoring Restoration\PC\Pollution Remediation\Nicholas Share" -Recurse -File)|where -Property LastAccessTime -GT $((get-date).date)| Sort-object -Property LastAccessTime -Descending | Format-table -Property Directory, Name, LastAccessTime
+
+How many years have I worked at derm? Run ((get-date)- [Datetime] "08-15-2016").days/365

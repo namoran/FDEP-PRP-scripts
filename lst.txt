@@ -1,0 +1,82 @@
+CC_COUNTY_ID	FAC_FACILITY_ID	CURRENT_SITE_MGR	New SM Name	New SM Email	New SM Phone #
+13	8505163	MORAN_N	CASTRO_MR	Monica.Castro@miamidade.gov
+305-372-6808
+13	9815521	MORAN_N	CASTRO_MR	Monica.Castro@miamidade.gov
+305-372-6808
+13	8504193	MORAN_N	CASTRO_MR	Monica.Castro@miamidade.gov
+305-372-6808
+13 	8505252	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	8505209	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	8732717	MORAN_N	ROBERTS_EA	Elizabeth.Roberts@miamidade.gov 
+305-372-6795
+13 	8505617	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	9101320	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	9102744	MORAN_N	ROBERTS_EA	Elizabeth.Roberts@miamidade.gov 
+305-372-6795
+13 	8522025	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	8736437	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	8503964 	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	8504795	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	8506377	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	8942809	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	8506140 	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	8505086	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	8504390 	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	9502690 	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	8505587	MORAN_N	MARTINEZ_NQ	Natalie.MartinezIrizarry@miamidade.gov 
+305-372-6700
+13 	8505992 	MORAN_N	MARTINEZ_NQ	Natalie.MartinezIrizarry@miamidade.gov 
+305-372-6700
+13 	8504780	MORAN_N	MARTINEZ_NQ	Natalie.MartinezIrizarry@miamidade.gov 
+305-372-6700
+13 	8504238	MORAN_N	MARTINEZ_NQ	Natalie.MartinezIrizarry@miamidade.gov 
+305-372-6700
+13 	8504472 	MORAN_N	MARTINEZ_NQ	Natalie.MartinezIrizarry@miamidade.gov 
+305-372-6700
+13 	8504934 	MORAN_N	MARTINEZ_NQ	Natalie.MartinezIrizarry@miamidade.gov 
+305-372-6700
+13 	8504651 	MORAN_N	MARTINEZ_NQ	Natalie.MartinezIrizarry@miamidade.gov 
+305-372-6700
+13 	8942556	MORAN_N	ROBERTS_EA	Elizabeth.Roberts@miamidade.gov 
+305-372-6795
+13 	9501539	MORAN_N	MARTINEZ_NQ	Natalie.MartinezIrizarry@miamidade.gov 
+305-372-6700
+13 	9046852	MORAN_N	MARTINEZ_NQ	Natalie.MartinezIrizarry@miamidade.gov 
+305-372-6700
+13 	8504496	MORAN_N	MARTINEZ_NQ	Natalie.MartinezIrizarry@miamidade.gov 
+305-372-6700
+13 	8504922	MORAN_N	MARTINEZ_NQ	Natalie.MartinezIrizarry@miamidade.gov 
+305-372-6700
+13 	8838306	MORAN_N	MARTINEZ_NQ	Natalie.MartinezIrizarry@miamidade.gov 
+305-372-6700
+13 	8505445	MORAN_N	ROBERTS_EA	Elizabeth.Roberts@miamidade.gov 
+305-372-6795
+13 	8504349	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	8504391	MORAN_N	LANATTA_S	Sergio.Lanatta@miamidade.gov
+305-372-6735
+13 	8504607	MORAN_N	HERMAN_C	Caroline.Herman@miamidade.gov
+305-372-6856
+13	8505454	MORAN_N	HERMAN_C	Caroline.Herman@miamidade.gov
+305-372-6856
+13 	8505875	MORAN_N	CASTRO_MR	Monica.Castro@miamidade.gov
+305-372-6808
+13 	8505853	MORAN_N	HERMAN_C	Caroline.Herman@miamidade.gov
+305-372-6856
+13 	8505403	MORAN_N	HERMAN_C	Caroline.Herman@miamidade.gov
+305-372-6856
+

@@ -1,0 +1,246 @@
+
+
+<!--10/17/2014-gans: added SSL redirect to asp page below any 'option explicit' or 'script type VSscript'-->
+
+
+<html>
+
+<head>
+	<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0"> 	<META http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+	<link rel="stylesheet" type="text/css" href="../stcm.css">
+	<title>Contractor Site Managers Assigned to Contractors</title>
+</head>
+
+<body topmargin="0" leftmargin="0">
+
+	<p>
+	<div align=center>
+	Florida Department of Environmental Protection<br>
+	Bureau of Petroleum Storage Systems<br>
+	<br>
+	<b>Contractor Site Managers Assigned to Contractors</b>
+
+	<br>
+		Data Create-Date: <font color="##356699">3/27/2019</font>
+	<br>
+		Report Run-Date: <font color="##356699">3/27/2019</font>
+	<br>
+	</div>
+
+	
+	<div align=left>
+	<font size="2">
+	<br>
+	You selected the following criteria:<br>
+	&nbsp;Contractor ID = <font color="##356699"></font><br>
+
+	
+		&nbsp;Company Name = <font color="##356699"></font><br>
+	
+
+	&nbsp;Office Type = <font color="##356699">ALL</font><br>
+	&nbsp;Employee ID = <font color="##356699"></font><br>
+
+	&nbsp;Employee Last Name = <font color="##356699"></font><br>
+	&nbsp;Employee First Name = <font color="##356699"></font><br>
+
+	&nbsp;Contractor/Employee & Office Association Made Between Begin-Date = <font color="##356699">01/01/2019</font><br>
+	&nbsp;Contractor/Employee & Office Association Made Between End-Date = <font color="##356699">03/27/2019</font><br>
+
+	&nbsp;Sort By = <font color="##356699">Contractor ID</font>
+	</font>
+	</div>
+
+	<p>
+	<div align=left>
+	Number of Records Retrieved:&nbsp;12
+	</div>
+
+
+	<p>
+
+	<table width=100% border=0 cellspacing=2>
+		<tr bgcolor="##356699">
+			<td><font color=white>Contractor ID</font></td>
+			<td><font color=white>Company Name</font></td>
+			<td><font color=white>Contractor Office</font></td>
+			<td><font color=white>Employee ID</font></td>
+			<td><font color=white>Employee Name</font></td>
+			<td><font color=white>Professional Title</font></td>
+			<td><font color=white>Prof Certification</font></td>
+			<td><font color=white>Prof License</font></td>
+			<td><font color=white>Phone</font></td>
+			<td><font color=white>Email</font></td>
+		</tr>
+		
+		
+			<tr>
+				<td nowrap> 00006</td>
+				<td nowrap>AMERICAN COMPLIANCE TECHNOLOGIES, INC. DBA ACT ENV</td>
+				<td nowrap>QUALIFIED</td>
+				<td nowrap> 0000463</td>
+				<td nowrap>STUMP, DANIEL </td>
+				<td nowrap></td>
+				<td nowrap></td>
+				<td nowrap></td>
+				<td nowrap>863-533-2000</td>
+				<td nowrap>DSTUMP@A-C-T.COM</td>
+			</tr>
+			
+			<tr>
+				<td nowrap> 00145</td>
+				<td nowrap>ARCADIS U.S., INC.</td>
+				<td nowrap>BRANCH</td>
+				<td nowrap> 0003991</td>
+				<td nowrap>CAPELL, CYNTHIA M</td>
+				<td nowrap></td>
+				<td nowrap></td>
+				<td nowrap></td>
+				<td nowrap>904-861-2853</td>
+				<td nowrap>CYNTHIA.CAPELL@ARCADIS.COM</td>
+			</tr>
+			
+			<tr>
+				<td nowrap> 00299</td>
+				<td nowrap>EARTH SYSTEMS INC.</td>
+				<td nowrap>BRANCH</td>
+				<td nowrap> 0003981</td>
+				<td nowrap>GALLAGHER, DANIEL </td>
+				<td nowrap>STAFF ENGINEER</td>
+				<td nowrap></td>
+				<td nowrap></td>
+				<td nowrap>561-588-3985</td>
+				<td nowrap>DGALLAGER@EARTHSYS.NET</td>
+			</tr>
+			
+			<tr>
+				<td nowrap> 00360</td>
+				<td nowrap>GEOSYNTEC CONSULTANTS, INC.</td>
+				<td nowrap>QUALIFIED</td>
+				<td nowrap> 0000735</td>
+				<td nowrap>SMITH, ADRIAN </td>
+				<td nowrap>ENGINEER</td>
+				<td nowrap>PE</td>
+				<td nowrap>64793</td>
+				<td nowrap>561-995-0900</td>
+				<td nowrap>AASMITH@GEOSYNTEC.COM</td>
+			</tr>
+			
+			<tr>
+				<td nowrap> 00431</td>
+				<td nowrap>ANDREYEV ENGINEERING, INC.</td>
+				<td nowrap>BRANCH</td>
+				<td nowrap> 0003979</td>
+				<td nowrap>WOOD, JESSE </td>
+				<td nowrap>PROJECT ENGINEER</td>
+				<td nowrap></td>
+				<td nowrap></td>
+				<td nowrap>727-527-5735</td>
+				<td nowrap>JWOOD@ANDREYEVENGINEERING.COM</td>
+			</tr>
+			
+			<tr>
+				<td nowrap> 00462</td>
+				<td nowrap>ADVANCED ENVIRONMENTAL TECHNOLOGIES, LLC.</td>
+				<td nowrap>BRANCH</td>
+				<td nowrap> 0003277</td>
+				<td nowrap>HITCHCOCK, DEBBIE </td>
+				<td nowrap>P.E.</td>
+				<td nowrap></td>
+				<td nowrap></td>
+				<td nowrap>850-377-4876</td>
+				<td nowrap>DHITCHCOCK@AETLLC.COM</td>
+			</tr>
+			
+			<tr>
+				<td nowrap> 00787</td>
+				<td nowrap>ATC GROUP SERVICES, LLC  FRMLY CARDNO ATC</td>
+				<td nowrap>QUALIFIED</td>
+				<td nowrap> 0003995</td>
+				<td nowrap>SCHWARTZ, HEATHER </td>
+				<td nowrap>PE</td>
+				<td nowrap></td>
+				<td nowrap></td>
+				<td nowrap>352-222-5528</td>
+				<td nowrap>HEATHER.SCHWARTZ@ATCGS.COM</td>
+			</tr>
+			
+			<tr>
+				<td nowrap> 01077</td>
+				<td nowrap>APTIM ENVIRONMENTAL & INFRASTRUCTURE, LLC</td>
+				<td nowrap>BRANCH</td>
+				<td nowrap> 0003989</td>
+				<td nowrap>DOBBINS, KRISTEN </td>
+				<td nowrap>PROJECT MANAGER</td>
+				<td nowrap></td>
+				<td nowrap></td>
+				<td nowrap>813-612-3660</td>
+				<td nowrap>KRISTIN.DOBBINS@APTIM.COM</td>
+			</tr>
+			
+			<tr>
+				<td nowrap> 01317</td>
+				<td nowrap>FOURTUNE 4, INC D/B/A ENVIRONMENTAL ASSESSMENTS & </td>
+				<td nowrap>BRANCH</td>
+				<td nowrap> 0001473</td>
+				<td nowrap>ZOMER, PATRICK W</td>
+				<td nowrap></td>
+				<td nowrap></td>
+				<td nowrap></td>
+				<td nowrap>941-378-8844</td>
+				<td nowrap>PZOMER@EACUSA.COM</td>
+			</tr>
+			
+			<tr>
+				<td nowrap> 01338</td>
+				<td nowrap>TRIDENT TREATMENT & DEWATERING, LLC DBA MAS ENVIRO</td>
+				<td nowrap>MAIN</td>
+				<td nowrap> 0003337</td>
+				<td nowrap>PULA, ANDREA </td>
+				<td nowrap>STAFF SCIENTIST</td>
+				<td nowrap></td>
+				<td nowrap></td>
+				<td nowrap>954-303-6443</td>
+				<td nowrap>APULA@MAS-ENV.COM</td>
+			</tr>
+			
+			<tr>
+				<td nowrap> 01338</td>
+				<td nowrap>TRIDENT TREATMENT & DEWATERING, LLC DBA MAS ENVIRO</td>
+				<td nowrap>QUALIFIED</td>
+				<td nowrap> 0003337</td>
+				<td nowrap>PULA, ANDREA </td>
+				<td nowrap>STAFF SCIENTIST</td>
+				<td nowrap></td>
+				<td nowrap></td>
+				<td nowrap>954-303-6443</td>
+				<td nowrap>APULA@MAS-ENV.COM</td>
+			</tr>
+			
+			<tr>
+				<td nowrap> 01402</td>
+				<td nowrap>AGUA LLC</td>
+				<td nowrap>BRANCH</td>
+				<td nowrap> 0003298</td>
+				<td nowrap>VOLPE, STEVE </td>
+				<td nowrap>SENIOR GEOLOGIST</td>
+				<td nowrap></td>
+				<td nowrap></td>
+				<td nowrap>407-853-4555</td>
+				<td nowrap>STEVEV@GEARENGINEER.COM</td>
+			</tr>
+			
+	</table>
+
+
+<br>
+
+Page built in 1 seconds.  Balance of duration is download time.<br>
+
+
+
+</body>
+
+</html>
+
+

@@ -6,5 +6,7 @@ from requests import get
 proxies = {'https': None}
 req = get('https://prodlamp.dep.state.fl.us/www_stcm/reports/AllOpenDischarges', proxies=proxies)
 df = pd.read_html(req.content)[0]
-df = df[df['Fac ID'] == arg] #exclude nonrelevant info from other FAC IDs
-print(df.to_markdown())   
+while True:
+    odf = df[df['Fac ID'] == arg] #exclude nonrelevant info from other FAC IDs
+    print(odf.to_markdown()+"\n\n")  
+    arg = int(input('enter FDEP no.'))

@@ -1,0 +1,48 @@
+var inch = 72;
+var aRectutLabel=[];
+aRectutLabel[0]= 8.95*inch; //left side of text input
+aRectutLabel[2]= aRectutLabel[0]+0.45*inch; // calculate width
+aRectutLabel[1]= 8.25*inch;
+aRectutLabel[3]= aRectutLabel[1]+0.18*inch;
+var annot = this.addAnnot({
+page: 0,
+type: "FreeText",
+contents: "UT#:",
+rect: aRectutLabel,
+lock: true,
+width:0
+});
+
+var aRectut=[];
+aRectut[0] = 8.95*inch; //left side of text input
+aRectut[2] = aRectut[0]+0.45*inch; // calculate width
+aRectut[1] = 8.25*inch;
+aRectut[3] = aRectut[1]+0.18*inch;
+var utno = this.addField("UT#", "text", 0, aRectut)
+//utno.delay = true;
+utno.textSize = 0; //autosize
+utno.alignment = "left";
+utno.textFont = font.HelvB;
+//utno.delay = false;
+
+var aRectprg=[];
+aRectprg[0] = 8.95*inch; //left side of text input
+aRectprg[2] = aRectprg[0]+0.45*inch;// calculate width
+aRectprg[1] = 8.05*inch;
+aRectprg[3] = aRectprg[1]+0.18*inch;
+var prg = this.addField("prg", "text", 0, aRectprg)
+prg.textSize = 0; //autosize
+prg.defaultValue = "Prg: ";
+prg.alignment = "left";
+prg.textFont = font.HelvB;
+
+var aRectscr=[];
+aRectscr[0] = 8.95*inch; //left side of text input
+aRectscr[2] = aRectscr[0]+0.45*inch;// calculate width
+aRectscr[1] = 7.85*inch;
+aRectscr[3] = aRectscr[1]+0.18*inch;
+var scr = this.addField("scr", "text", 0, aRectscr)
+scr.textSize = 0; //autosize
+scr.defaultValue = "Scr: ";
+scr.alignment = "left";
+scr.textFont = font.HelvB;

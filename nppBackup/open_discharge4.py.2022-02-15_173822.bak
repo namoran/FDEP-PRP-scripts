@@ -1,0 +1,78 @@
+#! C:\WPy64-3950\python-3.9.5.amd64\python.exe
+from sys import argv
+from sys import stdin
+import os
+from pathlib import Path
+
+def get_file_age(file):
+    import time
+    file_sec = max(file.stat().st_ctime,file.stat().st_mtime)
+    today_sec = time.time()
+    file_age = (today_sec - file_sec)/(24*60*60)
+    return file_age
+    
+def getcheck_data(file):
+    import subprocess
+    from pathlib import Path
+    import pandas as pd
+    chk_file = Path(file)
+    age_out_num = 1
+    if not chk_file.exists():
+        print(f'{chk_file} not present in folder')
+        chk_file.touch()
+        age_out_num = 0
+    if get_file_age(chk_file) > age_out_num:
+        print(f'{chk_file} is updating from FDEP server.')
+        from requests import get
+        proxies = {'https': None}
+        req = get('https://prodlamp.dep.state.fl.us/www_stcm/reports/AllOpenDischarges', proxies=proxies)
+        df = pd.read_html(req.content,index_col=2)[0]
+        print('saving table in folder')
+        subprocess.run(["attrib","-H",str(chk_file)])
+        #chk_file.unlink(missing_ok=True) # for debugging, delete soon
+        df.to_csv(chk_file)
+        subprocess.run(["attrib","+H",str(chk_file)])
+        return df #return a dataframe
+    else:  
+        print(f'{chk_file} file found on disk')
+        print('loading file to memory')
+        df = pd.read_csv(chk_file) 
+        df = df.set_index("Fac ID")
+        return df #return a dataframe
+ 
+script_path = Path.resolve(Path(__file__)) #get path of script
+os.chdir(script_path.parent) #change working directory of script to script's parent directory.
+df = getcheck_data(".discharges")
+list_of_fdep_ids = []
+list_of_fdep_ids.extend(argv[1:]) #add arguments provided to list of sites to get info on
+if stdin.isatty() : #if script is called interactively in console    
+    #print(list_of_fdep_ids) #for debugging
+    for arg in list_of_fdep_ids:
+        print(arg)
+        arg = int(arg)
+        try:
+            new_length = len(df.loc[[arg]])
+            odf = df.loc[[arg]].set_axis([f'Discharge #{x+1}' for x in range(new_length)])#exclude nonrelevant info from other FAC IDs and add a dicharge label
+            print(odf.T.to_markdown())
+        except:
+            print(f'No Entry found for {arg}')
+        finally:
+            print("\n\n")    
+            
+    user_input = input('Enter FDEP no. ')
+    while True:
+        try:
+            if user_input == '': 
+                print('a blank entry cannot be processed')
+                continue
+            user_input = int(user_input)
+            new_length = len(df.loc[[user_input]])
+            odf = df.loc[[user_input]].set_axis([f'Discharge #{x+1}' for x in range(new_length)])#exclude nonrelevant info from other FAC IDs and add a dicharge label
+            print(odf.T.to_markdown())
+        except:
+            print(f'No Entry found for {user_input}')
+        finally:
+            #print("\n")
+            user_input = input('Enter FDEP no. ')
+        
+       
