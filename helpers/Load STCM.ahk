@@ -12,7 +12,7 @@ WinWaitActive, Oracle Fusion Middleware Forms Services
 sleep, 5500
 send, MORAN_N
 send, {tab}
-send, Cptplanet1212
+send, *******
 send, {tab}
 send, oraprod
 send, {enter}
