@@ -4,11 +4,18 @@ import os.path
 import pathlib
 
 
-tasks = ['NEGOTIATED ITEM PRICE', 'TOTAL QUANTITIES','TASK 1', 
-         'TASK 2','TASK 3', 'TASK 4', 'TASK 5', 'TASK 6', 
-         'TASK 7', 'TASK 8', 'TASK 9', 'TASK 10']
+rfc_path = pathlib.Path(r"C:\Users\nick\Downloads\Desktop")
+print(rfc_path) 
 
-pay_items = ['1.', '1-1.', '1-2.', '1-2.a.', '1-3.', '1-4.', '1-5.',
+
+
+reimbursable_pay_items = ["1-4.","1-6.","2-3.","4-1.b.","14-3.","15-3.","15-3.a.","15-3.b.","15-7.",
+                          "15-8.","15-9.","15-10.","22-1.","22-2.","22-3.","22-4.","22-5.","22-6.",
+                          "22-7.","22-8.","22-9.","22-10.","22-11.","22-12.","22-13.","22-14.","22-15.",
+                          "22-16.","22-17.","22-18.","22-19.","22-20.","22-21.","22-22.","22-23.","22-24.",
+                          "22-25.","22-26.","22-27.","22-28.","22-29.","22-30.",]
+def get_pay_items():
+    pay_items = ['1.', '1-1.', '1-2.', '1-2.a.', '1-3.', '1-4.', '1-5.',
              '1-5.a.', '1-6.', '1-7.', '2.', '2-1.', '2-2.', '2-3.',
              '2-4.', '3.', '3-1.', '3-2.', '3-3.', '3-4.', '3-5.',
              '3-6.', '3-7.a.', '3-8.a.', '3-9.a.', '3-10.a.', '3-11.',
@@ -71,7 +78,12 @@ pay_items = ['1.', '1-1.', '1-2.', '1-2.a.', '1-3.', '1-4.', '1-5.',
              '22-9.', '22-10.', '22-11.', '22-12.', '22-13.', '22-14.', '22-15.', '22-16.',
              '22-17.', '22-18.', '22-19.', '22-20.', '22-21.', '22-22.', '22-23.',
              '22-24.', '22-25.', '22-26.', '22-27.', '22-28.', '22-29.', '22-30.', '23.', '23-1.']
-
+    return pay_items
+def get_tasks():
+    tasks = ['NEGOTIATED ITEM PRICE', 'TOTAL QUANTITIES','TASK 1', 
+         'TASK 2','TASK 3', 'TASK 4', 'TASK 5', 'TASK 6', 
+         'TASK 7', 'TASK 8', 'TASK 9', 'TASK 10']
+    return tasks
 def my_input(prompt=None):
     '''this function replaces input() and prints prompt to stderr'''
     if prompt:
@@ -81,51 +93,83 @@ def my_input(prompt=None):
 def sort_by_pi(e):
     '''this is a helper function which is used to sort the list of rfc
     entries into the same order as the list of payitems as they appear in the SPI'''
-    return pay_items.index(e[1])
+    return get_pay_items().index(e[1])
 
 def load_rfc(rfc_worksheet):
     '''this takes a worksheet from RFC file and creates a list of tuples, 
     each tuple includes tsk, pi, uom, pi_price, new_val, total_price'''
     lol = []
-    for row_file1 in rfc_worksheet.iter_rows(min_row=22, max_row=111, min_col=0,max_col=9, values_only=True):
-        if row_file1[0] != None:
-            tsk, pi, desc,_,_, uom, pi_price, new_val, total_price = row_file1
-            lol.append(('TASK '+str(tsk),pi, uom, new_val, total_price))
-            lol.sort()
-            lol.sort(key=sort_by_pi)
+    for row in rfc_worksheet.iter_rows(min_row=22, max_row=111, min_col=0,max_col=9, values_only=True):
+        if row[0] == None: continue
+        tsk, pi, desc,_,_, uom, pi_price, new_val, total_price = row
+        lol.append(('TASK '+str(tsk),pi, uom, new_val, total_price))
+    lol.sort()
+    lol.sort(key=sort_by_pi)
     return lol   
 
+def get_spi():
+    spi_wb = my_input('enter rfc to update: ')
+    spi_wb = pathlib.Path(spi_wb) if spi_wb != '' else  r"C:\Users\nick\Downloads\Desktop\PART2-AttachmentB-SPI-138506266-SA - Copy.xlsm" #example: C:/Users/e317181/OneDrive - Miami-Dade County/Desktop/AttachmentB(Revision1)-SPI-138505875-SA.xlsm
+    print(spi_wb)
+    return openpyxl.load_workbook(spi_wb, keep_vba=True, keep_links=True)
 
+def get_rfc():
+    rfc_wb = my_input('enter rfc: ')
+    rfc_wb = pathlib.Path(rfc_wb) if (rfc_wb != '') else pathlib.Path(r"C:\Users\nick\Downloads\Desktop\5632 RFC1 VERSION 4 - bad.xlsm")
+    # example: C:/Users/e317181/OneDrive - Miami-Dade County/Desktop/rfc.xlsm
+    print(rfc_wb)
+    return openpyxl.load_workbook(rfc_wb, read_only=True, data_only=True, keep_links=True)
 
-file1 = pathlib.Path(my_input('enter rfc: ')) # example: C:/Users/e317181/OneDrive - Miami-Dade County/Desktop/rfc.xlsm
-print(file1)
-spi = pathlib.Path(my_input('enter rfc to update: ')) #example: C:/Users/e317181/OneDrive - Miami-Dade County/Desktop/AttachmentB(Revision1)-SPI-138505875-SA.xlsm
-print(spi)
+def get_spi_row(pi):
+    min_row=11
+    return min_row + get_pay_items().index(pi)
 
-rfc_path = file1.parent
-print(rfc_path)   
+def get_spi_column(task):
+    min_col=7
+    return min_col + get_tasks().index(task)
 
-wb1 = openpyxl.load_workbook(file1, read_only=True, data_only=True)
-spi = openpyxl.load_workbook(spi, keep_vba=True)
+def get_old_spi_cell(pi, task):
+    row = get_spi_row(pi)
+    column = get_spi_column(task)
+    cell = SOW_Units.cell(row=row, column=column) 
+    cell.value = cell.value if cell.value != None else 0
+    return cell
 
-ws1 = wb1['RFC']
+#def add_to_spi (oldspicell, rfcvalue):
+#    new_val = oldspicell.value + rfcvalue
+#    SOW_Units.cell(row=row, column=column, value=new_val)
+
+  
+
+rfc = get_rfc()
+spi = get_spi()
+                            #spi['Invoice'].defined_names.clear()
+rfc_worksheet = rfc['RFC']
 SOW_Units = spi['SOW Units']
 
-min_row=11
-min_col=7
-ws1 = load_rfc(ws1)
-for rfc_items in ws1:
-    task = rfc_items[0]
-    pi = rfc_items[1]
-    row = min_row + pay_items.index(pi)
-    column = min_col + tasks.index(task)
-    units = rfc_items[3]
-    old_val = SOW_Units.cell(row=row, column=column).value
-    old_val = old_val if old_val != None else 0
-    new_val = old_val + units
-    SOW_Units.cell(row=row, column=column, value=new_val)
-    print('{} unit(s) added to {} in {}, {} The new value is {}'.format(units, old_val, task, pi, new_val))
+
+rfc_items = load_rfc(rfc_worksheet)
+handling_fee = False
+for rfc_item in rfc_items:
+    task,pi,units = rfc_item[0],rfc_item[1],rfc_item[3]
+    oldval = get_old_spi_cell(pi, task).value
+    get_old_spi_cell(pi, task).value += units
+    print('{} unit(s) added to {} in {}, {} The new value \
+          is {}'.format(units, 
+                        oldval, 
+                        task,
+                        pi, 
+                        get_old_spi_cell(pi, task).value))
     
-spi.save('newgeneratedspi.xlsm')
+    SOW_Units.row_dimensions[get_spi_row(pi)].hidden = False
+    
+if handling_fee: SOW_Units.row_dimensions[20].hidden = False   # unhide the 6% handling fee row. 
+spi.save(rfc_path / 'newgeneratedspi.xlsm')
 print("new spi saved to the same folder as the rfc")
+spi = openpyxl.load_workbook(rfc_path / 'newgeneratedspi.xlsm',read_only=True, data_only=True)
 input('press enter to quit')
+
+#if I add an item make sure its row is visible
+#get oldspivalue and add new quantity to it.
+
+
